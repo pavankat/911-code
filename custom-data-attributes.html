@@ -1,9 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Custom Data Attributes</title>
+	<style type="text/css">
+	.thumbnail {
+		width: 100px;
+		height: 100px;
+	}
+	</style>
 </head>
 <body>
 
+<img src="http://r.ddmcdn.com/s_f/o_1/cx_633/cy_0/cw_1725/ch_1725/w_720/APL/uploads/2014/11/too-cute-doggone-it-video-playlist.jpg" alt="dog" class="thumbnail" data-name="Fido" data-age="2" data-interest="golfing">
+
+<img src="https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx" alt="cat" class="thumbnail" data-name="Whiskers" data-age="147" data-interest="bowling" id="cat">
+
+<div id="display"></div>
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+$('.thumbnail').on('click', function(){
+	if ($(this).attr('data-count') == undefined) $(this).attr('data-count', 1);
+	else $(this).attr('data-count', parseInt($(this).attr('data-count')) + 1); 
+
+	console.log($(this).attr('data-count'));
+	$('#display').prepend("<p> Image Click Count: " + $(this).attr('data-count') + "</p>");
+	$('#display').prepend("<p> Name: " + $(this).attr('data-name') + "</p>");
+	$('#display').prepend("<p> Age: " + $(this).attr('data-age') + "</p>");
+	$('#display').prepend("<p> Interest: " + $(this).attr('data-interest') + "</p>");
+});
+
+// console.log();
+// console.log($('#cat').attr('data-age'));
+// console.log($('#cat').attr('data-interest'));
+
+// $('#cat').attr('data-interest', 'laser tag');
+// console.log($('#cat').attr('data-interest'));
+
+
+
+// console.log($('#cat').data('name'));
+// console.log($('#cat').data('age'));
+// console.log($('#cat').data('interest'));
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
